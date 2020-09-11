@@ -16,7 +16,7 @@ $.ajaxPrefilter(function (options) {
   // 不管请求是否成功，都会执行这个函数
   options.complete = function (res) {
     // console.log(res)
-    if (res.responseJSON.status !== 0 && res.responseJSON.message !== '获取用户基本信息成功！') {
+    if (res.responseJSON.status === 1 && res.responseJSON.message === '身份认证失败！') {
       // 删除本地内存中保存的token数据
       localStorage.removeItem('token');
       // 跳转到登录
