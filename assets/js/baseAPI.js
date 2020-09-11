@@ -15,7 +15,7 @@ $.ajaxPrefilter(function (options) {
   // 全局统一挂载complete函数
   // 不管请求是否成功，都会执行这个函数
   options.complete = function (res) {
-    console.log(res)
+    // console.log(res)
     if (res.responseJSON.status !== 0 && res.responseJSON.message !== '获取用户基本信息成功！') {
       // 删除本地内存中保存的token数据
       localStorage.removeItem('token');
