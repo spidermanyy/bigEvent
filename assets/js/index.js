@@ -17,22 +17,7 @@ function getUserInfo() {
             // 渲染用户头像
             // 如果有昵称就用昵称，没有就用用户名
         },
-        // if (res.status !== 0 && res.message !== '获取用户基本信息成功！') {
-        //     // 删除本地内存中保存的token数据
-        //     localStorage.removeItem('token');
-        //     // 跳转到登录
-        //     location.href = '/login.html';
-        // }
-        // 不管请求是否成功，都会执行这个函数
-        complete: function (res) {
-            console.log(res)
-            if (res.responseJSON.status !== 0 && res.responseJSON.message !== '获取用户基本信息成功！') {
-                // 删除本地内存中保存的token数据
-                localStorage.removeItem('token');
-                // 跳转到登录
-                location.href = '/login.html';
-            }
-        }
+
     })
 }
 // 渲染头像
@@ -57,6 +42,8 @@ function renderAvator(user) {
 
 // 实现退出功能
 var layer = layui.layer;
+
+
 $('.logOut').on('click', function () {
     // 弹出框
     layer.confirm('确定退出登录?', { icon: 3, title: '提示' }, function (index) {
